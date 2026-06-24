@@ -6,7 +6,8 @@ class Solution(object):
             for j in range(len(nums)):
                 if nums[j]<nums[i]:
                     min_count+=1
-            lst.append(min_count) 
+            lst.append(min_count)
+            min_count=0 
               
         return lst           
         
