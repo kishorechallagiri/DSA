@@ -7,6 +7,7 @@ class Solution(object):
                 count+=1
             elif count>0:
                 break
+            
             n-=1
         return count            
         
