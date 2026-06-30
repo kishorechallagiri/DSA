@@ -5,6 +5,7 @@ class Solution(object):
             for j in range(len(jewels)):
                 if jewels[j]==stones[i]:
                     count+=1
+                    break
             
         return count        
 
