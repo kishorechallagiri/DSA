@@ -10,14 +10,12 @@ class Solution(object):
         vowel=["a","e","i","o","u"]  
         maxvowel=0
         maxconsonant=0
-        for i in range(len(s)):
-            if s[i] in vowel:
-                if map[s[i]]>maxvowel:
-                    maxvowel=map[s[i]]    
+        for ch in s:
+            if ch in vowel:
+                maxvowel=max(maxvowel,map[ch])
             else:
-                if map[s[i]]>maxconsonant:
-                    maxconsonant=map[s[i]]
-        return maxvowel+maxconsonant            
+                maxconsonant=max(maxconsonant,map[ch]) 
+        return maxvowel+maxconsonant           
 
        
         
