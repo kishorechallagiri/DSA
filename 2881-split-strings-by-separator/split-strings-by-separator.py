@@ -1,13 +1,19 @@
 class Solution(object):
     def splitWordsBySeparator(self, words, separator):
-        result = []
+        new=[]
+        for i in words:
+            word=""
+            for ch in i:
+                if ch!=separator:
+                    word+=ch
+                else:
+                    if word:
+                        new.append(word)
+                        word=""
+            if word:
+                new.append(word)
 
-        for word in words:
-            for part in word.split(separator):
-                if part:
-                    result.append(part)
-
-        return result
-
+        return new
+        
 
         
