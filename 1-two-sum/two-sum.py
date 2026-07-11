@@ -4,8 +4,3 @@ class Solution(object):
             for j in range(i+1,len(nums)):
                 if nums[i]+nums[j]==target:
                     return [i,j]
-k=Solution()
-nums=[2,7,11,15]
-target=9
-print(k.twoSum(nums,target))        
-    
