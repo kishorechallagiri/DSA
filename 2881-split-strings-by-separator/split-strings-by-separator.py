@@ -1,6 +1,6 @@
 class Solution(object):
     def splitWordsBySeparator(self, words, separator):
-        new=[]
+        newlist=[]
         for i in words:
             word=""
             for ch in i:
@@ -8,12 +8,12 @@ class Solution(object):
                     word+=ch
                 else:
                     if word:
-                        new.append(word)
+                        newlist.append(word)
                         word=""
             if word:
-                new.append(word)
+                newlist.append(word)
 
-        return new
+        return newlist
         
 
         
