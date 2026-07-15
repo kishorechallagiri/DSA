@@ -7,14 +7,13 @@ class Solution(object):
     def removeNthFromEnd(self, head, n):
         sentinel=ListNode(0)
         sentinel.next=head
-        curr=head
-        length=0
-        while curr:
-            length+=1
-            curr=curr.next
-        prev=sentinel
-        for i in range(length-n):
-            prev=prev.next
-        prev.next=prev.next.next
+        first=sentinel
+        for i in range(n):
+            first=first.next
+        second=sentinel
+        while first.next:
+            second=second.next
+            first=first.next
+        second.next=second.next.next
         return sentinel.next        
         
