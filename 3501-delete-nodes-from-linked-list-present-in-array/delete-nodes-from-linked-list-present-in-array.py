@@ -16,6 +16,7 @@ class Solution(object):
                 dummy.next=curr
                 dummy=dummy.next
             curr=curr.next
+        #corner case
         dummy.next=None    
         return dummyHead.next    
 
