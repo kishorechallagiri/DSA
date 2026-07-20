@@ -3,33 +3,23 @@ class MyStack(object):
 
     def __init__(self):
         self.q1=deque()
-        self.q2=deque()
         
-
     def push(self, x):
         self.q1.append(x)
         
-
     def pop(self):
         n=len(self.q1)
         for i in range(n-1):
-            self.q2.append(self.q1.popleft())
-        ans=self.q1.popleft()
-        self.q1,self.q2=self.q2,self.q1
-        return ans    
-
-        
-        
-
+            self.q1.append(self.q1.popleft())
+        return self.q1.popleft()        
     def top(self):
         n=len(self.q1)
         for i in range(n-1):
-            self.q2.append(self.q1.popleft())
+            self.q1.append(self.q1.popleft())
         front=self.q1.popleft()
-        self.q2.append(front)  
-        self.q1,self.q2=self.q2,self.q1
+        self.q1.append(front)  
+      
         return front
-
     def empty(self):
         return len(self.q1)==0
         
