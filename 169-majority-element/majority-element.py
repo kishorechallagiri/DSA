@@ -9,9 +9,7 @@ class Solution(object):
                 count[num] += 1
     
                
-        return max(count,key=count.get)        
-
-
+        return max(count,key=count.get)    
 
 
 
