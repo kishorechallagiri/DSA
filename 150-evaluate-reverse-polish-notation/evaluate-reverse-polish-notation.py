@@ -1,7 +1,7 @@
-
+from collections import deque
 class Solution(object):
     def evalRPN(self, tokens):
-        stack=[]
+        stack=deque()
         for i in range(len(tokens)):
             if tokens[i] not in "+-*/":
                 stack.append(int(tokens[i]))
