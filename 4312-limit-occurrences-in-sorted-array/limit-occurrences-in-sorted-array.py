@@ -7,7 +7,6 @@ class Solution(object):
         for num in nums:
             if num not in count:
                 count[num] = 0
-
             if count[num] < k:
                 lst.append(num)
                 count[num] += 1
