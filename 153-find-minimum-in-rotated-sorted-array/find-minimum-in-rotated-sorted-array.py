@@ -1,13 +1,18 @@
 class Solution(object):
     def findMin(self, nums):
         l,r=0,len(nums)-1
-        while l<r:
-            m=l+(r-l)//2
-            if nums[m]>nums[r] and nums[l]>nums[r]:
-                l=m+1
+        
+        while l<=r:
+            if nums[l]<=nums[r]:
+                return nums[l]
+            m=l+(r-l)//2 
+            if nums[m]<nums[m-1]:
+                return nums[m] 
+            #left half is nor sorted
+            if nums[l]>nums[m]:
+                r=m-1
             else:
-                r=m
-        return nums[l]          
-        
-        
+                l=m+1           
+
+
         
