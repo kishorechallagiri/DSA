@@ -5,11 +5,17 @@
 #         self.next = next
 class Solution(object):
     def deleteDuplicates(self, head):
+        hash=set()
         curr=head
-        while curr and curr.next:
-            if curr.val==curr.next.val:
-                curr.next=curr.next.next
-            else:
+        prev=None
+        while curr:
+            if curr.val not in hash:
+                hash.add(curr.val)
+                prev=curr
                 curr=curr.next
-        return head            
-        
+                
+            else:
+                prev.next=curr.next
+                curr=curr.next
+               
+        return head      
