@@ -1,15 +1,12 @@
 class Solution(object):
-    def peakIndexInMountainArray(self, arr):
-        l, r = 0, len(arr) - 1
-
-        while l < r:
-            m = l + (r - l) // 2
-
-            if arr[m] < arr[m + 1]:
-                l = m + 1
+    def peakIndexInMountainArray(self, nums):
+        l,r=0,len(nums)-1
+        while l<r:
+            m=l+(r-l)//2
+            if nums[m]>nums[m+1]:
+                r=m
             else:
-                r = m
-
-        return l
+                l=m+1
+        return r        
 
         
