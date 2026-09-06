@@ -1,11 +1,13 @@
 class Solution(object):
     def validPalindrome(self, s):
         l, r = 0, len(s) - 1
+        count=0
         while l < r:
             if s[l] == s[r]:
                 l += 1
                 r -= 1
             else:
+                count+=1
                 # Try removing s[l]
                 left = l + 1
                 right = r
@@ -27,7 +29,8 @@ class Solution(object):
                 if left >= right:
                     return True
 
-                return False
+                if count>1:
+                    return False
 
         return True
                  
