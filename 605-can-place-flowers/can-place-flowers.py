@@ -7,7 +7,7 @@ class Solution(object):
         #one lement
         if len(nums) == 1:
             if nums[0] == 0:
-                nums[0] == 1
+                nums[0] = 1
                 return True
             else:
                 return False     
