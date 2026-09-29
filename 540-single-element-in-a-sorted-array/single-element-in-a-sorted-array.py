@@ -19,6 +19,7 @@ class Solution(object):
                 else:
                     l = m+2
             else:
-                return arr[m]       
-        return arr[l]                     
+                return arr[m]    
+        return arr[r]           
+                        
 
