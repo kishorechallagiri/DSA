@@ -1,15 +1,11 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        hash = {}
-        for i in range(len(nums)):
-            hash[nums[i]] = i+1
-        for i in range(len(nums)):
-            val = target - nums[i]
-            if val in hash and hash[val] != i+1:  
-                return [i+1,hash[val]]
-        """
-        :type numbers: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        
+        i ,j = 0, len(nums) - 1
+        while i < j:
+            val = nums[i] + nums[j]
+            if val == target:
+                return [ i+1, j+1]
+            elif val > target:
+                j-=1
+            elif val<target:
+                i += 1
