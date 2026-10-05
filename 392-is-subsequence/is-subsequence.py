@@ -1,15 +1,8 @@
 class Solution(object):
     def isSubsequence(self, s, t):
-        newstrg = ""
-        i = j = 0
-        while i < len(t) and j < len(s):
-            if t[i] == s[j]:
-                newstrg += t[i]
-                i += 1
-                j +=1
-            else:
+        i  = j = 0
+        while j < len(t) and i<len(s):
+            if s[i] == t[j]:
                 i+=1
-        print(newstrg)        
-        return newstrg == s        
-
-        
+            j+=1
+        return i == len(s)        
