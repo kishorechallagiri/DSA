@@ -6,14 +6,15 @@
 
 class Solution(object):
     def getIntersectionNode(self, headA, headB):
-        hash=set()
-        while headA:
-            hash.add(headA)
-            headA=headA.next
-        while headB:
-            if headB in hash:
-                return headB
-            headB=headB.next
-        return None      
+        i = headA
+        j = headB
+        while i!=j:
+            i = i.next if i else headB
+            j = j.next if j else headA
+        return i    
+
+
+            
+
 
         
