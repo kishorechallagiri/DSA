@@ -1,19 +1,12 @@
 class Solution(object):
-    def maxArea(self, arr):
-        maxval = float('-inf')
-        i = 0
-        j = len(arr) - 1
+    def maxArea(self, height):
+        i, j = 0, len(height) - 1
+        max_water = 0
         while i < j:
-            if arr[i]<arr[j]:
-                area = arr[i]*(j - i)
-                maxval = max(maxval,area)
-                i+=1
-            elif arr[i]>arr[j]:
-                area = arr[j]*(j - i)
-                maxval = max(maxval,area)
-                j-=1
-            elif arr[i] == arr[j]:
-                area = arr[i]*(j - i)
-                maxval = max(maxval,area)
-                i+=1
-        return maxval                   
+            area = min(height[i], height[j]) * (j - i)
+            max_water = max(max_water, area)
+            if height[i] > height[j]:
+                j -= 1
+            else:
+                i += 1
+        return max_water
