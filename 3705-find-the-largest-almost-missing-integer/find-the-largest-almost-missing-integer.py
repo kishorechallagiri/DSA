@@ -1,14 +1,16 @@
 class Solution(object):
     def largestInteger(self, nums, k):
-        count = {}
-
+        maxval = float('-inf')
+        hash = {}
         for i in range(len(nums) - k + 1):
-            for x in set(nums[i:i+k]):
-                count[x] = count.get(x, 0) + 1
-
-        ans = -1
-        for x in count:
-            if count[x] == 1:
-                ans = max(ans, x)
-
-        return ans
+            subarr = set(nums[i:i+k])
+            for ch in subarr:
+                if ch not in hash:
+                    hash[ch] = 1
+                else:
+                    hash[ch] += 1
+        for ch in hash:
+            if hash[ch] == 1:
+                if ch > maxval :
+                    maxval = ch 
+        return maxval if maxval!=float('-inf') else -1  
