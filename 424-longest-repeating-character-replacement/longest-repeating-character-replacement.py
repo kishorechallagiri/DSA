@@ -4,7 +4,6 @@ class Solution(object):
         i = j = 0
         map = {}
         maxWindow = 0
-
         while j < len(s):
             if s[j] not in map:
                 map[s[j]] = 0
