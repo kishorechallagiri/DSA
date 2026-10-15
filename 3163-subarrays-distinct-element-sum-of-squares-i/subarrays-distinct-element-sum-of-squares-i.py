@@ -1,11 +1,14 @@
 class Solution(object):
-    def sumCounts(self, arr):
-        lst = []
-        n = len(arr)
+    def sumCounts(self, nums):
+        total = 0
+        n = len(nums)
+
         for i in range(n):
+            seen = set()
+
             for j in range(i, n):
-                lst.append(len(set(arr[i:j + 1])))
-        sumval = 0
-        for ch in lst:
-            sumval += ch*ch
-        return sumval
+                seen.add(nums[j])
+                distinct = len(seen)
+                total += distinct * distinct
+
+        return total
