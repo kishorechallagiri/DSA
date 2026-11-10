@@ -7,11 +7,13 @@
 class Solution(object):
     def inorderTraversal(self, root):
         ans = []
-        def traversal(curr):
-            if not curr:
-                return 
-            traversal(curr.left)
+        stack =[]
+        curr = root
+        while stack or curr :
+            while curr :
+                stack.append(curr)
+                curr = curr.left
+            curr = stack.pop()
             ans.append(curr.val)
-            traversal(curr.right)
-        traversal(root)
+            curr = curr.right
         return ans        
