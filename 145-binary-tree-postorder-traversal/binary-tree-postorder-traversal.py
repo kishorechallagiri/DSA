@@ -6,12 +6,25 @@
 #         self.right = right
 class Solution(object):
     def postorderTraversal(self, root):
+        if not root:
+            return []
+
+        s1 = [root]
+        s2 = []
+
+        while s1:
+            curr = s1.pop()
+            s2.append(curr)
+
+            if curr.left:
+                s1.append(curr.left)
+
+            if curr.right:
+                s1.append(curr.right)
+
         ans = []
-        def traversal(curr):
-            if not curr:
-                return
-            traversal(curr.left)
-            traversal(curr.right)
-            ans.append(curr.val)
-        traversal(root)
-        return ans        
+
+        while s2:
+            ans.append(s2.pop().val)
+
+        return ans
