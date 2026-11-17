@@ -4,36 +4,18 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-from collections import deque
 class Solution(object):
+
     def levelOrder(self, root):
-        if not root:
-            return []
-
-        q = deque([root])
         ans = []
-
-        while q:
-            levelArr = []
-            levelSize = len(q)
-
-            for i in range(levelSize):
-                curr = q.popleft()
-
-                if curr.left:
-                    q.append(curr.left)
-
-                if curr.right:
-                    q.append(curr.right)
-
-                levelArr.append(curr.val)
-
-            ans.append(levelArr)
-
+        def dfs(node, level):
+            if not node:
+                return
+            if len(ans) == level:
+                ans.append([])
+            ans[level].append(node.val)
+            dfs(node.left, level + 1)
+            dfs(node.right, level + 1)
+        dfs(root, 0)
         return ans
-                
-
-
-            
-
-
+        
