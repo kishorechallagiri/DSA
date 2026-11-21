@@ -1,10 +1,8 @@
 class Solution(object):
-    def thirdMax(self, nums):
-        first = float('-inf')
-        second = float('-inf')
-        third = float('-inf')
+    def thirdMax(self, arr):
+        first = second = third = float('-inf')
 
-        for num in nums:
+        for num in arr:
             if num == first or num == second or num == third:
                 continue
 
@@ -20,8 +18,6 @@ class Solution(object):
             elif num > third:
                 third = num
 
-        if third == float('-inf'):
-            return first
-
-        return third
-        
+        if third != float('-inf'):
+            return third
+        return first
